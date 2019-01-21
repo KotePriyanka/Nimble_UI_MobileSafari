@@ -130,6 +130,25 @@ namespace Nimble.Automation.Accelerators.Accelerators
             return driver;
         }
 
+        public IWebDriver TestSetup(string strMobileDevice, string nl)
+        {
+            DebugLocalMobile(strMobileDevice); 
+
+            if (nl == "NL")
+            {
+               // driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(120));
+                VerifyPageIsLoaded();
+                driver.Navigate().GoToUrl(WebuiURL);
+            }
+            else
+            {
+               // driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(120));
+                VerifyPageIsLoaded();
+                driver.Navigate().GoToUrl(rlURLTestClient);
+            }
+            return driver;
+        }
+
         public void VerifyPageIsLoaded()
         {
             var pageLoaded = false;

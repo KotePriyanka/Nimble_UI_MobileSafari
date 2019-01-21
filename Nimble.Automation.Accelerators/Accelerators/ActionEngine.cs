@@ -2,7 +2,7 @@
 using OpenQA.Selenium;
 using System;
 using System.IO;
-using JavascriptExecutor = OpenQA.Selenium.IJavaScriptExecutor;
+//using JavascriptExecutor = OpenQA.Selenium.IJavaScriptExecutor;
 using WebElement = OpenQA.Selenium.IWebElement;
 using WebDriverWait = OpenQA.Selenium.Support.UI.WebDriverWait;
 using ExpectedConditions = OpenQA.Selenium.Support.UI.ExpectedConditions;
@@ -12,6 +12,7 @@ using Alert = OpenQA.Selenium.IAlert;
 using System.Globalization;
 using System.Threading;
 using System.Collections.Generic;
+using By = OpenQA.Selenium.By;
 
 namespace Nimble.Automation.Accelerators.Accelerators
 {
@@ -52,9 +53,9 @@ namespace Nimble.Automation.Accelerators.Accelerators
             {
                 /*Highlight element*/
                 WebElement webElement = driver.FindElement(locator);
-                JavascriptExecutor js = driver as JavascriptExecutor;
-                js.ExecuteScript("arguments[0].style.border='2px solid yellow'", webElement);
-                js.ExecuteScript("arguments[0].click();", webElement);
+                //JavascriptExecutor js = driver as JavascriptExecutor;
+                //js.ExecuteScript("arguments[0].style.border='2px solid yellow'", webElement);
+                //js.ExecuteScript("arguments[0].click();", webElement);
                 /*Highlight code ends*/
                 //Thread.Sleep(500);
                 // driver.FindElement(locator).Click();
@@ -63,8 +64,8 @@ namespace Nimble.Automation.Accelerators.Accelerators
             }
             catch (Exception)
             {
-                System.Drawing.Imaging.ImageFormat format = System.Drawing.Imaging.ImageFormat.Jpeg;
-                ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile(Path.Combine(projectLoc, TestContext.CurrentContext.Test.Name + "-" + DateTime.Now.ToString("dd-M-yyyy", CultureInfo.InvariantCulture) + "." + format), ScreenshotImageFormat.Jpeg);
+                //System.Drawing.Imaging.ImageFormat format = System.Drawing.Imaging.ImageFormat.Jpeg;
+                //((ITakesScreenshot)driver).GetScreenshot().SaveAsFile(Path.Combine(projectLoc, TestContext.CurrentContext.Test.Name + "-" + DateTime.Now.ToString("dd-M-yyyy", CultureInfo.InvariantCulture) + "." + format), format);
                 return flag;
             }
             return flag;
@@ -77,8 +78,8 @@ namespace Nimble.Automation.Accelerators.Accelerators
             {
                 /*Highlight element*/
                 WebElement webElement = driver.FindElement(locator);
-                JavascriptExecutor js = driver as JavascriptExecutor;
-                js.ExecuteScript("arguments[0].style.border='2px solid yellow'", webElement);
+                //JavascriptExecutor js = driver as JavascriptExecutor;
+                //js.ExecuteScript("arguments[0].style.border='2px solid yellow'", webElement);
                 /*Highlight code ends*/
                 Thread.Sleep(500);
                 driver.FindElement(locator).Click();
@@ -132,8 +133,8 @@ namespace Nimble.Automation.Accelerators.Accelerators
                 /*Highlight element*/
 
                 WebElement webElement = driver.FindElement(locator);
-                JavascriptExecutor js = driver as JavascriptExecutor;
-                js.ExecuteScript("arguments[0].style.border='4px solid yellow'", webElement);
+                //JavascriptExecutor js = driver as JavascriptExecutor;
+                //js.ExecuteScript("arguments[0].style.border='4px solid yellow'", webElement);
                 /*Highlight code ends*/
                 driver.FindElement(locator).Clear();
 
@@ -645,8 +646,8 @@ namespace Nimble.Automation.Accelerators.Accelerators
             try
             {
                 WebElement element = driver.FindElement(locator);
-                JavascriptExecutor executor = (JavascriptExecutor)driver;
-                executor.ExecuteScript("arguments[0].click();", element);
+                //JavascriptExecutor executor = (JavascriptExecutor)driver;
+                //executor.ExecuteScript("arguments[0].click();", element);
                 //driver.executeAsyncScript("arguments[0].click();", element);
                 flag = true;
             }
@@ -685,9 +686,9 @@ namespace Nimble.Automation.Accelerators.Accelerators
             try
             {
                 WebElement mo = driver.FindElement(locator);
-                string javaScript = "var evObj = document.createEvent('MouseEvents');" + "evObj.initMouseEvent(\"mouseover\",true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);" + "arguments[0].dispatchEvent(evObj);";
-                JavascriptExecutor js = (JavascriptExecutor)driver;
-                js.ExecuteScript(javaScript, mo);
+                //string javaScript = "var evObj = document.createEvent('MouseEvents');" + "evObj.initMouseEvent(\"mouseover\",true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);" + "arguments[0].dispatchEvent(evObj);";
+                //JavascriptExecutor js = (JavascriptExecutor)driver;
+                //js.ExecuteScript(javaScript, mo);
                 flag = true;
                 return flag;
             }
@@ -826,8 +827,8 @@ namespace Nimble.Automation.Accelerators.Accelerators
                 /*Highlight element*/
 
                 WebElement webElement = driver.FindElement(locator);
-                JavascriptExecutor js = driver as JavascriptExecutor;
-                js.ExecuteScript("arguments[0].style.border='4px solid yellow'", webElement);
+                //JavascriptExecutor js = driver as JavascriptExecutor;
+                //js.ExecuteScript("arguments[0].style.border='4px solid yellow'", webElement);
                 /*Highlight code ends*/
                 Select s = new Select(driver.FindElement(locator));
                 s.SelectByText(visibletext);
@@ -1253,7 +1254,7 @@ namespace Nimble.Automation.Accelerators.Accelerators
                 try
                 {
                     string script = String.Format(@"arguments[0].style.cssText = ""border-width: 4px; border-style: solid; border-color: {0}"";", "orange");
-                    JavascriptExecutor jsExecutor = (JavascriptExecutor)driver;
+                    //JavascriptExecutor jsExecutor = (JavascriptExecutor)driver;
                     //jsExecutor.ExecuteScript(script, new object[] { element });
                     //jsExecutor.ExecuteScript(String.Format(@"$(arguments[0].scrollIntoView(true));"), new object[] { element });
                 }
@@ -1278,9 +1279,9 @@ namespace Nimble.Automation.Accelerators.Accelerators
                 try
                 {
                     string script = String.Format(@"arguments[0].style.cssText = ""border-width: 4px; border-style: solid; border-color: {0}"";", "orange");
-                    JavascriptExecutor jsExecutor = (JavascriptExecutor)driver;
-                    jsExecutor.ExecuteScript(script, new object[] { element });
-                    jsExecutor.ExecuteScript(String.Format(@"$(arguments[0].scrollIntoView(true));"), new object[] { element });
+                    //JavascriptExecutor jsExecutor = (JavascriptExecutor)driver;
+                    //jsExecutor.ExecuteScript(script, new object[] { element });
+                    //jsExecutor.ExecuteScript(String.Format(@"$(arguments[0].scrollIntoView(true));"), new object[] { element });
                 }
                 catch { }
             }

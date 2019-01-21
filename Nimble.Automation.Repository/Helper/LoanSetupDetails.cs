@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
-using JavascriptExecutor = OpenQA.Selenium.IJavaScriptExecutor;
+//using JavascriptExecutor = OpenQA.Selenium.IJavaScriptExecutor;
 using System.Threading.Tasks;
 
 namespace Nimble.Automation.Repository.Helper
@@ -1211,8 +1211,8 @@ namespace Nimble.Automation.Repository.Helper
             actions.Perform();
             ////Additional code to verify the scroll happens till the end
             IWebElement webElement = _driver.FindElement(By.XPath(".//div[@id='scrollBottom']"));
-            JavascriptExecutor js = _driver as JavascriptExecutor;
-            js.ExecuteScript("arguments[0].scrollIntoView(true);", webElement);
+           // JavascriptExecutor js = _driver as JavascriptExecutor;
+           // js.ExecuteScript("arguments[0].scrollIntoView(true);", webElement);
         }
 
         public double GetRepaymentAmountConfirmPage()

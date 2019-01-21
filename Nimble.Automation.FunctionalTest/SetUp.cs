@@ -1,5 +1,4 @@
-﻿using Nimble.Automation.Accelerators;
-using Nimble.Automation.Accelerators.Accelerators;
+﻿using Nimble.Automation.Accelerators.Accelerators;
 using NUnit.Framework;
 
 namespace Nimble.Automation.FunctionalTest
